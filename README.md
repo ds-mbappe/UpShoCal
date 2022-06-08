@@ -2,7 +2,7 @@
 npm install
 
 # Description
-UpSHoCal is a React Native app which displays upcoming shoes relseases. The application uses the API "The Sneaker Database" taken from RapidAPI in order to display shoes data. The shoes data include:
+UpSHoCal is a React Native app which displays upcoming shoes relseases. The application uses the API "The Sneaker Database" taken from RapidAPI in order to display shoes data. BECAUSE the API access if only free for the first 200 requets ( any aditionnal costs 0.02$), I copied the whole API response in a data.js file and used it; I then commented the part that was making the call to the API, but you can always decomment it if you want to try it out, just make sure to comment it again  afterwards. The shoes data include:
   - id
   - sku
   - brand
