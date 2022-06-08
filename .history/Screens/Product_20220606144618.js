@@ -1,0 +1,159 @@
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  ScrollView,
+} from "react-native";
+import React from "react";
+import Icon from "react-native-vector-icons/AntDesign";
+
+const Product = ({ route, navigation }) => {
+  const { productData } = route.params;
+
+  return (
+    <ScrollView style={{ backgroundColor: "#FFFFF9" }}>
+      <View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{productData.brand}</Text>
+          <Icon name="heart" size={20} color="red" />
+        </View>
+        <View style={styles.mainContainer}>
+          <View style={styles.backContainter}></View>
+          <Image
+            style={styles.shoePicture}
+            source={{ uri: productData.image["thumbnail"] }}
+            resizeMode="contain"
+          />
+          <View style={styles.namePrice}>
+            <Text style={styles.shoeName}>{productData.name}</Text>
+            <View style={styles.priceBorder}>
+              <Text style={styles.shoePrice}>${productData.retailPrice}</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.description}>
+          <Text style={styles.descriptionTitle}>Description</Text>
+          <Text style={styles.shoeReleaseDate}>
+            Release Date: {productData.releaseDate}
+          </Text>
+          <Text style={styles.descriptionText}>
+            {productData.story
+              ? productData.story
+              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper nulla sit amet odio vulputate, quis imperdiet ligula suscipit. Nullam quis ex dui. Nulla facilisi. Nulla viverra ornare mi, maximus varius est condimentum id. Aenean tortor libero, luctus in elit sit amet, tempus varius odio. Sed suscipit semper ante a aliquet. Fusce eu malesuada enim. Praesent eget libero ac nisl laoreet rhoncus nec sed nisl. Nullam aliquam, ligula sed iaculis pretium, urna dui tincidunt dui, eu ultrices augue ligula ac ante. Aenean magna libero, semper sed tincidunt ut, dapibus fermentum orci. Mauris maximus ipsum leo, vitae tincidunt risus faucibus a."}
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+export default Product;
+
+const styles = StyleSheet.create({
+  header: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginStart: 20,
+    marginTop: 50,
+    marginEnd: 20,
+    marginBottom: 40,
+  },
+  headerText: {
+    fontFamily: "San Francisco",
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "darkblue",
+  },
+  mainContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginStart: 20,
+    marginTop: 100,
+    marginEnd: 20,
+    marginBottom: 20,
+    backgroundColor: "white",
+    shadowColor: "black",
+    borderColor: "orange",
+    borderRadius: 20,
+    borderWidth: 1,
+  },
+  backContainter: {
+    width: 300,
+    height: 300,
+    backgroundColor: "gray",
+    marginTop: -100,
+    zIndex: -100,
+    borderRadius: 25,
+  },
+  shoePicture: {
+    width: 200,
+    height: 200,
+    overflow: "hidden",
+    backgroundColor: "gray",
+    marginTop: -250,
+    marginBottom: 50,
+    zIndex: 10,
+    transform: [{ rotate: "-30deg" }, { scaleX: -1 }],
+  },
+  namePrice: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 50,
+  },
+  shoeName: {
+    marginStart: 25,
+    marginEnd: 20,
+    width: "50%",
+    fontFamily: "San Francisco",
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "darkblue",
+  },
+  priceBorder: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 60,
+    padding: 10,
+    marginEnd: 30,
+    backgroundColor: "orange",
+    borderRadius: 10,
+  },
+  shoePrice: {
+    fontFamily: "San Francisco",
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+  },
+  description: {
+    flex: 1,
+    margin: 20,
+  },
+  descriptionTitle: {
+    fontFamily: "San Francisco",
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "black",
+    marginBottom: 5,
+  },
+  shoeReleaseDate: {
+    fontFamily: "San Francisco",
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "gray",
+    marginBottom: 20,
+  },
+  descriptionText: {
+    fontFamily: "San Francisco",
+    fontSize: 18,
+    color: "black",
+  },
+});

@@ -1,0 +1,20 @@
+import react from 'react';
+import { CalendarList } from 'react-native-calendars';
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+    <Text>Shoes description</Text>
+  </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+});
