@@ -78,7 +78,7 @@ const Home = ({ route, navigation }) => {
                 flex: 1,
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "center",
+                alignItems: "flex-start",
               }}
             >
               <View style={styles.header}>
@@ -96,10 +96,7 @@ const Home = ({ route, navigation }) => {
                 </View>
               </View>
               <View>
-                <TouchableOpacity
-                  style={styles.logOut}
-                  onPress={() => navigation.navigate("Login")}
-                >
+                <TouchableOpacity style={styles.logOut}>
                   <Text style={styles.logOutText}>Logout</Text>
                 </TouchableOpacity>
               </View>
@@ -272,7 +269,6 @@ const styles = StyleSheet.create({
   },
   logOut: {
     marginStart: 20,
-    marginTop: 50,
     marginEnd: 20,
   },
   logOutText: {

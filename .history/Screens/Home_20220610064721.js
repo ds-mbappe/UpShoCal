@@ -73,14 +73,7 @@ const Home = ({ route, navigation }) => {
       <FlatList
         ListHeaderComponent={
           <>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
+            <View style={{ flex: 1, flexDirection: "row" }}>
               <View style={styles.header}>
                 <TouchableOpacity>
                   <ImageBackground
@@ -96,10 +89,7 @@ const Home = ({ route, navigation }) => {
                 </View>
               </View>
               <View>
-                <TouchableOpacity
-                  style={styles.logOut}
-                  onPress={() => navigation.navigate("Login")}
-                >
+                <TouchableOpacity style={styles.logOut}>
                   <Text style={styles.logOutText}>Logout</Text>
                 </TouchableOpacity>
               </View>
@@ -272,7 +262,6 @@ const styles = StyleSheet.create({
   },
   logOut: {
     marginStart: 20,
-    marginTop: 50,
     marginEnd: 20,
   },
   logOutText: {

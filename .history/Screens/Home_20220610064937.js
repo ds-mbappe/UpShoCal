@@ -96,10 +96,7 @@ const Home = ({ route, navigation }) => {
                 </View>
               </View>
               <View>
-                <TouchableOpacity
-                  style={styles.logOut}
-                  onPress={() => navigation.navigate("Login")}
-                >
+                <TouchableOpacity style={styles.logOut}>
                   <Text style={styles.logOutText}>Logout</Text>
                 </TouchableOpacity>
               </View>

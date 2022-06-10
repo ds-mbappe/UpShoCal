@@ -40,6 +40,7 @@ const Registration = ({ navigation }) => {
           password: pass,
         })
         .then((response) => {
+          5555;
           const result = response.data;
           const { message, status, data } = result;
 

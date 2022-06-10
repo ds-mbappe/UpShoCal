@@ -35,7 +35,7 @@ const Registration = ({ navigation }) => {
 
       axios
         .post(url, {
-          name: name,
+          fullName: name,
           email: username,
           password: pass,
         })

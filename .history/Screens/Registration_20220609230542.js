@@ -28,35 +28,31 @@ const Registration = ({ navigation }) => {
   };
 
   const onRegisterPress = (name, username, pass) => {
-    if (password !== confirmPassword) {
-      Alert.alert("Passwords don't match");
-    } else {
-      const url = "https://damp-forest-17400.herokuapp.com/user/register";
+    const url = "https://damp-forest-17400.herokuapp.com/user/register";
 
-      axios
-        .post(url, {
-          name: name,
-          email: username,
-          password: pass,
-        })
-        .then((response) => {
-          const result = response.data;
-          const { message, status, data } = result;
+    axios
+      .post(url, {
+        fullName: name,
+        email: username,
+        password: pass,
+      })
+      .then((response) => {
+        const result = response.data;
+        const { message, status, data } = result;
 
-          if (status !== "SUCCESS") {
-            handleMessage(message, status);
-          } else {
-            navigation.navigate("Home", {
-              userData: data,
-            });
-          }
-        })
-        .catch((error) => {
-          //console.log(error.response.data);
-          handleMessage("An error occurred.");
-        });
-      console.log("Register Pressed");
-    }
+        if (status !== "SUCCESS") {
+          handleMessage(message, status);
+        } else {
+          navigation.navigate("Home", {
+            userData: data,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error.JSON());
+        handleMessage("An error occurred, please try again.");
+      });
+    console.log("Register Pressed");
   };
 
   const handleMessage = (message, type = "FAILED") => {

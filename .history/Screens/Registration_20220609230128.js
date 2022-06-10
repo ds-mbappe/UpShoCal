@@ -35,7 +35,7 @@ const Registration = ({ navigation }) => {
 
       axios
         .post(url, {
-          name: name,
+          fullName: name,
           email: username,
           password: pass,
         })
@@ -52,8 +52,8 @@ const Registration = ({ navigation }) => {
           }
         })
         .catch((error) => {
-          //console.log(error.response.data);
-          handleMessage("An error occurred.");
+          console.log(error.JSON());
+          handleMessage("An error occurred, please try again.");
         });
       console.log("Register Pressed");
     }
